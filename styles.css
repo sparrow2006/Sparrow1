@@ -1,0 +1,210 @@
+/* Adding custom properties */
+:root {
+    --primary-color: #FA4ACB;
+    --secondary-color: #4e8fff;
+    --text-color: #333;
+    --background-color: rgba(255, 255, 255, 0.9);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/07/Desktop-Animation-Backgrounds.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.form-container {
+    background-color: var(--background-color);
+    backdrop-filter: blur(10px);
+    padding: 40px 80px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-container {
+    margin-bottom: 30px;
+}
+
+.logo-icon {
+    font-size: 48px;
+    color: var(--primary-color);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 36px;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+     color:#fff;
+}
+
+/* Styling for form groups (input fields) */
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    background-color: rgba(249, 249, 249, 0.9);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(250, 74, 203, 0.2);
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 480px) {
+    .form-container {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .button {
+        flex-direction: column;
+    }
+}
+
+.button {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.a1,
+.a2 {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.a1::before,
+.a2::before {
+    display: none;
+}
+
+.a1:hover,
+.a2:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(250, 74, 203, 0.3);
+    background: linear-gradient(45deg,
+            color-modify(var(--primary-color), darker),
+            color-modify(var(--secondary-color), darker));
+}
+
+.a1 i,
+.a2 i {
+    margin-right: 8px;
+}
+
+/* Add ripple effect */
+.a1::after,
+.a2::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.a1:active::after,
+.a2:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Focus Animation */
+.animated-button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(72, 149, 239, 0.6);
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #FA4ACB;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #376ebd;
+    color: black;
+}
